@@ -4,6 +4,7 @@ IAM is a GLOBAL aws service - There is no concept of regional IAM
 Supports Identity Federation which can be used for Single Sign-on i.e. via SAML
 Can be used to give temporary access
 IAM has 3 identity entities: IAM User, IAM Role And IAM Group
+IAM is a FREE service from AWS and charges are applied only for use of other AWS products by your IAM users.
 
 USERS:
 Individual accounts
@@ -13,7 +14,7 @@ AccessKeyID + SecretAccessKey => Can be view once, if you loose you have regener
 You can create 5000 users per account (for >5000 consider Temporary Security Credentials like STS by using SAML etc)
 A user can be a member of 10 groups
 By Default, Access keys assigned to an IAM user is 2
-A user cab attached 10 managed policies
+A user can be attached 10 managed policies
 
 
 GROUPS:
