@@ -1,0 +1,45 @@
+IAM_Notes:
+
+IAM is a GLOBAL aws service - There is no concept of regional IAM
+Supports Identity Federation which can be used for Single Sign-on i.e. via SAML
+Can be used to give temporary access
+IAM has 3 identity entities: IAM User, IAM Role And IAM Group
+
+USERS:
+Individual accounts
+Bydefault new USER identity no access to any service ( DENY-----ALLOW------DENY )
+2 ways to access AWS infra: Username + Password (GUI) AND AccessKeyID + SecretAccessKey (Programmetic way, Command Line, API call etc)
+AccessKeyID + SecretAccessKey => Can be view once, if you loose you have regenerate a new pair
+You can create 5000 users per account (for >5000 consider Temporary Security Credentials like STS by using SAML etc)
+A user can be a member of 10 groups
+By Default, Access keys assigned to an IAM user is 2
+A user cab attached 10 managed policies
+
+
+GROUPS:
+Collection of USERS
+User can be part of multiple group
+Group CAN NOT be a part of another group ( Group nesting not allowed)
+You can't login via GROUPS
+Default limit 300 in n AWS account
+
+ROLES:
+
+	Roles can be used by the following:
+
+		An IAM user in the same AWS account as the role
+		An IAM user in a different AWS account than the role
+		A web service offered by AWS such as Amazon Elastic Compute Cloud (Amazon EC2)
+		An external user authenticated by an external identity provider (IdP) service that is compatible with SAML 2.0 or OpenID Connect, or a custom-built identity broker.
+		
+		
+Roles are IAM identity having specific set of permission that is assigned to other AWS services, resources to assume for making relevant service calls,API calls etc.
+You can not use Role to access AWS infra directly
+You can not login via a Role
+Roles only can be assumed by other AWs service & resources
+Role has 2 components: Trust Policy and Permission Policy
+Default Limit 1000 in an AWS account
+A role can be attached 10 managed policies
+
+
+
