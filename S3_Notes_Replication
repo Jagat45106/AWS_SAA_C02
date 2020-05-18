@@ -1,0 +1,36 @@
+S3 Replication Notes:-
+    
+	Types of Object Replication:
+	    Cross-Region replication (CRR) -  is used to copy objects across Amazon S3 buckets in different AWS Regions.
+        Same-Region replication (SRR) -   is used to copy objects across Amazon S3 buckets in the same AWS Region.
+		
+Note:- Buckets that are configured for object replication can be owned by the same AWS account or by different accounts.
+
+Why to use Replication:
+    
+	Replicate objects while retaining metadata ( Retained original object creation time and version IDs	) - To ensure  that your replica is identical to the source object.
+	
+	Replicate objects into different storage classes - Object can be be moved to different storage class while using replication (even Archive class - Glacier, Glacier Deep Arch).
+	
+	Maintain object copies under different ownership - Benifit is, you can set different ownership at destination bucket side. You can use this option to restrict access to object replicas.
+	
+	Replicate objects within 15 minutes - S3 Replication Time Control (S3 RTC) to replicate your data in the same AWS Region or across different Regions in a predictable time frame.S3 RTC replicates 99.99 percent of new objects stored in Amazon S3 within 15 minutes
+	
+	
+When to Use CRR:
+     
+    Meet compliance requirements
+	Minimize latency
+	Increase operational efficiency
+	
+When to Use SRR	
+    Aggregate logs into a single bucket
+	Configure live replication between production and test accounts
+	Abide by data sovereignty laws - In a region you can store multiplw copy of data in different AWS accounts. Same-Region replication can help automatically replicate critical data when compliance regulations don't allow the data to leave your country.
+	
+Requirements for Replication:
+		
+		Both source and destination buckets must have versioning enabled
+		S3 must have permissions to replicate objects from the source bucket to the destination bucket on your behalf. (Using Roles)
+		If the owner of the source bucket doesn't own the object in the bucket, the object owner must grant the bucket owner READ and READ_ACP permissions with the object access control list (ACL)
+		If the source bucket has S3 Object Lock enabled, the destination bucket must also have S3 Object Lock enabled		
